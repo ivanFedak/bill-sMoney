@@ -11,41 +11,61 @@ const calc = ()=>{
 
 
     inputs.forEach((input, i) => {
+        input.value = 0;
+        if(input.value == 0){
+            inputs[i].parentElement.children[0].classList.add('_disabled');
+        }
         input.addEventListener('input',function(e){
             
-
-            arr[i] = input.value * input.dataset.price;
-            let res = arr.map(i=>x+=i,x=0).reverse()[0];
-            totalNum.innerHTML = totalCount - res
-
-           
-             // res                   //value of all selected item
-            // totalCount            // 100000
-           // totalNum.innerHTML    // how many is left
-
-
-        
-            if(res >= totalCount){
-                totalNum.innerHTML = 0
-            }
-        
-
-            if(inputs[i].dataset.price > totalNum.innerHTML){
-                inputs[i].parentElement.children[2].classList.add('_disabled');
-                
-            }else{
-                inputs[i].parentElement.children[2].classList.remove('_disabled');
-            }
-
-            console.log(totalNum.innerHTML)
-
-            console.log(inputs[i].dataset.price)
-
-
-         
+            reCount();
         })
     })
+    function checkValue(){
 
+        inputs.forEach((input, i) => {
+
+            input.value = input.value.replace(/[\D]/g, ''); //only number
+
+            if(input.value[0] == 0){
+                input.value = input.value.slice(1) //delete 0
+            }
+
+            if(input.value == ''){
+                input.value = 0 // if empty so 0
+            }
+
+            if(input.value == 0){
+                inputs[i].parentElement.children[0].classList.add('_disabled');
+            }else{
+                inputs[i].parentElement.children[0].classList.remove('_disabled');
+            }
+
+        })
+    }
+
+
+    function reCount(){
+        inputs.forEach((input, i) => {
+
+            arr[i] = input.value * input.dataset.price;  // [100, 4340, 550, 1000]
+            let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
+            totalNum.innerHTML = totalCount - res        // how many is left (active counter)
+            // totalCount - 100000
+
+        })
+    }
+
+    
+    document.addEventListener('click', function (e) {//btns
+
+        if (e.target.classList.contains("main-block__buy")) {
+            ++e.target.parentElement.querySelector(".main-block__input").value;
+            reCount();
+        } else if (e.target.classList.contains("main-block__sell")) {
+            --e.target.parentElement.querySelector(".main-block__input").value;
+            reCount();
+        }
+    })
 
 
 

@@ -44,7 +44,7 @@ const cards = ()=>{
             card.innerHTML = `
 
                 <div class="main-block__image">
-                    <img src="./img//goods/${img}" alt="burger">
+                    <img src="./img//goods/${img}" alt="${title}">
                 </div>
 
                 <div class="main-block__content">
@@ -54,7 +54,7 @@ const cards = ()=>{
 
                 <div class="main-block__controls">
                     <button class="main-block__sell btn">Sell</button>
-                    <input autocomplete='off' pattern="\d*" type='number' name='form[]' class='main-block__input' data-price=${price}>
+                    <input autocomplete='off' min="0" type='number' name='form[]' class='main-block__input' data-price=${price}>
                     <button class="main-block__buy btn">Buy</button>
                 </div>
 

@@ -198,6 +198,7 @@ input[type=number] {
   cursor: auto;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
+  pointer-events: none;
 }
 
 ._ibg {
