@@ -739,11 +739,6 @@ const calc = () => {
 
       totalNum.innerHTML = totalCount - res; // how many is left (active counter)
       // totalCount - 100000
-      // console.log(totalNum.innerHTML)
-      // console.log(input.dataset.price)
-      // if(input.dataset.price > 69000){
-      //     console.log(1)
-      // }
     });
   }
 
@@ -762,7 +757,7 @@ const calc = () => {
       checkValue();
       reCount();
 
-      if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) < Number(totalNum.innerHTML)) {
+      if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) <= Number(totalNum.innerHTML)) {
         e.target.parentElement.querySelector(".main-block__buy").classList.remove('_disabled');
       }
     }

@@ -6,6 +6,7 @@ const calc = ()=>{
     const inputs = document.querySelectorAll('.main-block__input');
     const totalNum = document.querySelector('.header__price span');
     let totalCount = document.querySelector('.header__price span').innerHTML;
+
     const arr = [];
     let x;
 
@@ -39,6 +40,7 @@ const calc = ()=>{
             }else{
                 inputs[i].parentElement.children[0].classList.remove('_disabled');
             }
+
         })
     }
     
@@ -49,12 +51,6 @@ const calc = ()=>{
             let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
             totalNum.innerHTML = totalCount - res        // how many is left (active counter)
             // totalCount - 100000
-
-            // console.log(totalNum.innerHTML)
-            // console.log(input.dataset.price)
-            // if(input.dataset.price > 69000){
-            //     console.log(1)
-            // }
         })
     }
 
@@ -76,9 +72,10 @@ const calc = ()=>{
             checkValue();
             reCount();
 
-            if(Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) < Number(totalNum.innerHTML)){
+            if(Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) <= Number(totalNum.innerHTML)){
                 e.target.parentElement.querySelector(".main-block__buy").classList.remove('_disabled');
             }
+
         }
     })
 
