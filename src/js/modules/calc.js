@@ -16,10 +16,12 @@ const calc = ()=>{
         checkValue();
 
         input.addEventListener('input',function(e){
-            checkValue();
             reCount();
+            checkValue();
         })
     })
+
+
 
     function checkValue(){
 
@@ -27,20 +29,28 @@ const calc = ()=>{
 
             input.value = input.value.replace(/[\D]/g, ''); //only number
 
-            if(input.value[0] == 0){
-                input.value = input.value.slice(1) //delete 0
+            if(input.value[0] == 0){//delete 0
+                input.value = input.value.slice(1) 
             }
 
-            if(input.value == ''){
-                input.value = 0 // if empty so 0
+            if(input.value == ''){// if empty so 0
+                input.value = 0 
             }
 
-            if(input.value == 0){
+            if(input.value == 0){// can't sold
                 inputs[i].parentElement.children[0].classList.add('_disabled');
             }else{
                 inputs[i].parentElement.children[0].classList.remove('_disabled');
             }
 
+
+            if(Number(input.dataset.price) > Number(totalNum.innerHTML)){ // can't buy anymore
+                input.nextElementSibling.classList.add('_disabled');
+            }else{
+                input.nextElementSibling.classList.remove('_disabled');
+            }
+
+            
         })
     }
     

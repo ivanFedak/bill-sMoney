@@ -22,6 +22,11 @@ const cards = ()=>{
             price: '1500',
         },
         {
+            img: 'macbook.png',
+            title: 'Macbook Pro 2021',
+            price: '3500',
+        },
+        {
             img: 'videoCard.png',
             title: 'Nvidia Rtx 3090',
             price: '3800',
