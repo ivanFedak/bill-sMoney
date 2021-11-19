@@ -739,6 +739,11 @@ const calc = () => {
 
       totalNum.innerHTML = totalCount - res; // how many is left (active counter)
       // totalCount - 100000
+      // console.log(totalNum.innerHTML)
+      // console.log(input.dataset.price)
+      // if(input.dataset.price > 69000){
+      //     console.log(1)
+      // }
     });
   }
 
@@ -748,10 +753,18 @@ const calc = () => {
       ++e.target.parentElement.querySelector(".main-block__input").value;
       checkValue();
       reCount();
+
+      if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) > Number(totalNum.innerHTML)) {
+        e.target.classList.add('_disabled');
+      }
     } else if (e.target.classList.contains("main-block__sell")) {
       --e.target.parentElement.querySelector(".main-block__input").value;
       checkValue();
       reCount();
+
+      if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) < Number(totalNum.innerHTML)) {
+        e.target.parentElement.querySelector(".main-block__buy").classList.remove('_disabled');
+      }
     }
   });
 };
