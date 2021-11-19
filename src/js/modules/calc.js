@@ -20,18 +20,6 @@ const calc = ()=>{
         })
     })
 
-
-    function reCount(){
-        inputs.forEach((input, i) => {
-
-            arr[i] = input.value * input.dataset.price;  // [100, 4340, 550, 1000]
-            let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
-            totalNum.innerHTML = totalCount - res        // how many is left (active counter)
-            // totalCount - 100000
-
-        })
-    }
-    
     function checkValue(){
 
         inputs.forEach((input, i) => {
@@ -51,20 +39,31 @@ const calc = ()=>{
             }else{
                 inputs[i].parentElement.children[0].classList.remove('_disabled');
             }
-            
 
         })
     }
     
+    function reCount(){
+        inputs.forEach((input, i) => {
+
+            arr[i] = input.value * input.dataset.price;  // [100, 4340, 550, 1000]
+            let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
+            totalNum.innerHTML = totalCount - res        // how many is left (active counter)
+            // totalCount - 100000
+
+        })
+    }
+
+    
     document.addEventListener('click', function (e) {//btns
 
         if (e.target.classList.contains("main-block__buy")) {
-            checkValue();
             ++e.target.parentElement.querySelector(".main-block__input").value;
+            checkValue();
             reCount();
         } else if (e.target.classList.contains("main-block__sell")) {
-            checkValue();
             --e.target.parentElement.querySelector(".main-block__input").value;
+            checkValue();
             reCount();
         }
     })
