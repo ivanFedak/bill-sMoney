@@ -737,10 +737,9 @@ const calc = () => {
       } // console.log(Math.floor(300000 / 70000))
 
 
-      if (Number(input.dataset.price) > Number(totalNum.innerHTML)) {
+      if (Number(input.dataset.price) >= Number(totalNum.innerHTML)) {
         // can't buy anymore
-        input.nextElementSibling.classList.add('_disabled'); // input.value = Math.floor(Number(totalNum.innerHTML)  / Number(input.dataset.price))
-        // console.log(Math.floor(Number(totalNum.innerHTML)  / Number(input.dataset.price)))
+        input.nextElementSibling.classList.add('_disabled'); // console.log(Math.floor(Number(totalNum.innerHTML)  / Number(input.dataset.price)))
       } else {
         input.nextElementSibling.classList.remove('_disabled');
       }
@@ -763,16 +762,16 @@ const calc = () => {
     if (e.target.classList.contains("main-block__buy")) {
       ++e.target.parentElement.querySelector(".main-block__input").value; // +1
 
-      checkValue();
       reCount();
+      checkValue();
 
       if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) > Number(totalNum.innerHTML)) {
         e.target.classList.add('_disabled');
       }
     } else if (e.target.classList.contains("main-block__sell")) {
       --e.target.parentElement.querySelector(".main-block__input").value;
-      checkValue();
       reCount();
+      checkValue();
 
       if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) <= Number(totalNum.innerHTML)) {
         e.target.parentElement.querySelector(".main-block__buy").classList.remove('_disabled');
