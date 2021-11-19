@@ -737,12 +737,14 @@ const calc = () => {
       } // console.log(Math.floor(300000 / 70000))
 
 
-      if (Number(input.dataset.price) >= Number(totalNum.innerHTML)) {
-        // can't buy anymore
-        input.nextElementSibling.classList.add('_disabled'); // console.log(Math.floor(Number(totalNum.innerHTML)  / Number(input.dataset.price)))
-      } else {
-        input.nextElementSibling.classList.remove('_disabled');
-      }
+      inputs.forEach(input => {
+        if (Number(input.dataset.price) > Number(totalNum.innerHTML)) {
+          // can't buy anymore
+          input.nextElementSibling.classList.add('_disabled'); // console.log(Math.floor(Number(totalNum.innerHTML)  / Number(input.dataset.price)))
+        } else {
+          input.nextElementSibling.classList.remove('_disabled');
+        }
+      });
     });
   }
 
