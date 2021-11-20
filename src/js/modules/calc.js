@@ -22,12 +22,10 @@ const calc = ()=>{
     })
 
 
-    function inputChecker(params) {
+    function inputChecker() {
         inputs.forEach(input=>{
             if(Number(input.dataset.price) > Number(totalNum.innerHTML)){ // can't buy anymore
-            
                 if(!/-/g.test(Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price))){
-                    reCount()
                     input.value = Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price)
                     reCount()
                     checkValue()
@@ -55,30 +53,14 @@ const calc = ()=>{
                 inputs[i].parentElement.children[0].classList.remove('_disabled');
             }
 
-
-
-
-
-            // input.setAttribute('max', Math.floor(Number(totalNum.innerHTML) / Number(input.dataset.price)))
-            // input.setAttribute('max', weHave)
-            // console.log(Math.floor(Number(totalNum.innerHTML) / Number(input.dataset.price)))
             if(Number(input.dataset.price) > Number(totalNum.innerHTML)){ // can't buy anymore
                 input.nextElementSibling.classList.add('_disabled');
                 input.setAttribute('max', input.value);
-
- 
-                // console.log(Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) //!!!! 
-                // console.log(Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price)) //!!!!  Дає кілько поміститься
-                // input.value = Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price)
-
             }else{
                 input.removeAttribute('max');
                 input.nextElementSibling.classList.remove('_disabled');
             }
 
-  
-
-            
 
             
         })
@@ -91,6 +73,7 @@ const calc = ()=>{
             let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
             totalNum.innerHTML = totalCount - res        // how many is left (active counter)
             // totalCount - 100000
+
             // if(Number(totalNum.innerHTML) < 0){
             //     totalNum.innerHTML = 0;
             // }
