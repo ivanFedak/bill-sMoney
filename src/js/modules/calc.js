@@ -110,14 +110,25 @@ const calc = ()=>{
 
 //Add to receipt
 
+const blocks = document.querySelectorAll('.main-block__item');
+
+
     const listArr = [];
 
-    const list = {};
-    list.name = 'hello' 
-    list.quan = 2
-    list.price = 110
-    listArr.push(list);
-    console.log(listArr)
+    function generateList() {
+        blocks.forEach(block=>{
+            const input = block.querySelector('input');
+            const name = block.querySelector('.main-block__title').innerHTML;
+            const list = {};
+            list.name = name 
+            list.quan = input.value
+            list.price = input.dataset.price
+            listArr.push(list);
+        })
+    }
+    generateList()
+
+
 
     function createItem(data) {
 
@@ -137,7 +148,7 @@ const calc = ()=>{
             document.querySelector('.footer__body').appendChild(goods);
         });
     }
-    
+
     createItem(listArr)
  
 
