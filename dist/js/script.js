@@ -746,10 +746,6 @@ const calc = () => {
         input.removeAttribute('max');
         input.nextElementSibling.classList.remove('_disabled');
       }
-
-      if (totalNum.innerHTML == 0) {
-        input.classList.add('_full');
-      }
     });
   }
 
@@ -758,7 +754,6 @@ const calc = () => {
       arr[i] = input.value * input.dataset.price; // [100, 4340, 550, 1000]
 
       let res = arr.map(i => x += i, x = 0).reverse()[0]; // 6000 reslut of that array
-      // let active = res.filter(item => !item.classList.contains('_active')); 
 
       totalNum.innerHTML = totalCount - res; // how many is left (active counter)
       // totalCount - 100000

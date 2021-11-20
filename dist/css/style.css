@@ -57,6 +57,7 @@ body {
 
 .wrapper {
   min-height: 100%;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -366,6 +367,7 @@ body.ie ._ibg img {
 .main-block__title {
   font-size: 22px;
   font-weight: 700;
+  color: #333;
 }
 
 .main-block__price {
@@ -411,6 +413,96 @@ body.ie ._ibg img {
   background: linear-gradient(180deg, #2ecc71, #1abc9c);
 }
 
+.footer {
+  padding-bottom: 20px;
+}
+
+.footer__container {
+  background-color: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.footer__wrapper {
+  padding: 0 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.footer__title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+}
+
+.footer__body {
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  font-size: 18px;
+  border-bottom: 1px solid #333;
+}
+
+.footer__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer__item:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.footer__name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.footer__quantity {
+  margin-right: 30px;
+}
+
+.footer__price {
+  color: #24c486;
+  font-weight: 700;
+}
+
+.footer__bottom {
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer__total {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 26px;
+  color: #333;
+}
+
+.footer__money {
+  font-size: 22px;
+  color: #24c486;
+  font-weight: 700;
+}
+
 @media (min-width: 767.98px) {
   .header {
     padding-top: 50px;
@@ -453,6 +545,22 @@ body.ie ._ibg img {
   .main-block__priceBlock:not(:last-child) {
     margin-bottom: calc(20px + 10 * ((100vw - 320px) / 910));
   }
+
+  .footer__container {
+    padding-top: calc(30px + 10 * ((100vw - 320px) / 910));
+  }
+
+  .footer__container {
+    padding-bottom: calc(30px + 10 * ((100vw - 320px) / 910));
+  }
+
+  .footer__title {
+    font-size: calc(28px + 4 * ((100vw - 320px) / 910));
+  }
+
+  .footer__total {
+    font-size: calc(18px + 8 * ((100vw - 320px) / 910));
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -461,6 +569,10 @@ body.ie ._ibg img {
   }
 
   .main-block__container {
+    margin: 0 -15px;
+  }
+
+  .footer__container {
     margin: 0 -15px;
   }
 }
