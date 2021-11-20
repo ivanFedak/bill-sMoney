@@ -704,8 +704,8 @@ const burger = () => {// const btn = document.querySelector('.icon-menu'),
 __webpack_require__.r(__webpack_exports__);
 const calc = () => {
   const inputs = document.querySelectorAll('.main-block__input');
-  const totalNum = document.querySelector('.header__price span');
-  let totalCount = document.querySelector('.header__price span').innerHTML;
+  const totalNum = document.querySelector('.main-block__money span');
+  let totalCount = document.querySelector('.main-block__money span').innerHTML;
   const arr = [];
   let x;
   inputs.forEach((input, i) => {

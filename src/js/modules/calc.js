@@ -4,8 +4,8 @@ const calc = ()=>{
 
 
     const inputs = document.querySelectorAll('.main-block__input');
-    const totalNum = document.querySelector('.header__price span');
-    let totalCount = document.querySelector('.header__price span').innerHTML;
+    const totalNum = document.querySelector('.main-block__money span');
+    let totalCount = document.querySelector('.main-block__money span').innerHTML;
 
     const arr = [];
     let x;
