@@ -714,7 +714,8 @@ const calc = () => {
     input.addEventListener('input', function (e) {
       reCount();
       checkValue();
-      inputChecker();
+      inputChecker(); // generateList();
+      // createItem(listArr);
     });
   });
 
@@ -803,18 +804,19 @@ const calc = () => {
   const listArr = [];
 
   function generateList() {
-    blocks.forEach(block => {
+    blocks.forEach((block, i) => {
       const input = block.querySelector('input');
       const name = block.querySelector('.main-block__title').innerHTML;
       const list = {};
-      list.name = name;
-      list.quan = input.value;
-      list.price = input.dataset.price;
-      listArr.push(list);
+
+      if (input.value > 0) {
+        list.name = name;
+        list.quan = input.value;
+        list.price = input.dataset.price * input.value;
+        listArr.push(list);
+      }
     });
   }
-
-  generateList();
 
   function createItem(data) {
     data.forEach(item => {
@@ -833,8 +835,6 @@ const calc = () => {
       document.querySelector('.footer__body').appendChild(goods);
     });
   }
-
-  createItem(listArr);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (calc);

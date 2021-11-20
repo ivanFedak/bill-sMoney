@@ -18,6 +18,10 @@ const calc = ()=>{
             reCount();
             checkValue();
             inputChecker();
+
+
+            // generateList();
+            // createItem(listArr);
         })
     })
 
@@ -110,28 +114,31 @@ const calc = ()=>{
 
 //Add to receipt
 
-const blocks = document.querySelectorAll('.main-block__item');
+    const blocks = document.querySelectorAll('.main-block__item');
 
 
     const listArr = [];
 
     function generateList() {
-        blocks.forEach(block=>{
+        blocks.forEach((block,i)=>{
+
             const input = block.querySelector('input');
             const name = block.querySelector('.main-block__title').innerHTML;
             const list = {};
-            list.name = name 
-            list.quan = input.value
-            list.price = input.dataset.price
-            listArr.push(list);
+            if(input.value > 0){
+                list.name = name 
+                list.quan = input.value
+                list.price = input.dataset.price * input.value
+                listArr.push(list);
+            }
         })
     }
-    generateList()
+    
+    
 
 
 
     function createItem(data) {
-
         data.forEach(item => {
 
             const {name,quan,price} = item;
@@ -149,7 +156,7 @@ const blocks = document.querySelectorAll('.main-block__item');
         });
     }
 
-    createItem(listArr)
+    
  
 
 }
