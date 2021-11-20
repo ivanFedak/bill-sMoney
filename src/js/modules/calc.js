@@ -108,7 +108,38 @@ const calc = ()=>{
     })
 
 
+//Add to receipt
 
+    const listArr = [];
+
+    const list = {};
+    list.name = 'hello' 
+    list.quan = 2
+    list.price = 110
+    listArr.push(list);
+    console.log(listArr)
+
+    function createItem(data) {
+
+        data.forEach(item => {
+
+            const {name,quan,price} = item;
+
+            let goods = document.createElement('div');
+            goods.classList.add('footer__item');
+
+            goods.innerHTML = `
+                <div class="footer__name">${name}</div>
+                <div class="footer__quantity">x<span>${quan}</span></div>
+                <div class="footer__price">$ <span>${price}</span></div> 
+            `
+
+            document.querySelector('.footer__body').appendChild(goods);
+        });
+    }
+    
+    createItem(listArr)
+ 
 
 }
 export default calc;
