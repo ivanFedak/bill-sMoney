@@ -48,7 +48,7 @@ const calc = ()=>{
     
             if(Number(input.dataset.price) > Number(totalNum.innerHTML)){ // can't buy anymore
                 input.nextElementSibling.classList.add('_disabled');
-                // input.value = (Math.floor(Number(totalNum.innerHTML)  / Number(input.dataset.price)));
+                input.setAttribute('max', input.value)
             }else{
                 input.nextElementSibling.classList.remove('_disabled');
             }
@@ -65,11 +65,6 @@ const calc = ()=>{
         inputs.forEach((input, i) => {
 
             arr[i] = input.value * input.dataset.price;  // [100, 4340, 550, 1000]
-            if(arr[i] > 10){
-                let myIndex = arr.indexOf(arr[i]);
-                let newArr = arr.splice(myIndex, 1);
-            }
-            console.log(arr)
             let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
             // let active = res.filter(item => !item.classList.contains('_active')); 
             totalNum.innerHTML = totalCount - res        // how many is left (active counter)

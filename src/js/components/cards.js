@@ -47,7 +47,7 @@ const cards = ()=>{
             let card = document.createElement('div');
             card.classList.add('main-block__item');
             card.dataset.id = i++;
-            
+
             card.innerHTML = `
 
                 <div class="main-block__image">
@@ -61,7 +61,7 @@ const cards = ()=>{
 
                 <div class="main-block__controls">
                     <button class="main-block__sell btn">Sell</button>
-                    <input autocomplete='off' min="0" type='number' name='form[]' class='main-block__input' data-price=${price}>
+                    <input autocomplete='off' min="0"  type='number' name='form[]' class='main-block__input' data-price=${price}>
                     <button class="main-block__buy btn">Buy</button>
                 </div>
 
