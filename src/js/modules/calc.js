@@ -44,12 +44,12 @@ const calc = ()=>{
             }
 
 
-            // console.log(Math.floor(300000 / 70000))
     
             if(Number(input.dataset.price) > Number(totalNum.innerHTML)){ // can't buy anymore
                 input.nextElementSibling.classList.add('_disabled');
                 input.setAttribute('max', input.value)
             }else{
+                input.removeAttribute('max');
                 input.nextElementSibling.classList.remove('_disabled');
             }
             if(totalNum.innerHTML == 0){

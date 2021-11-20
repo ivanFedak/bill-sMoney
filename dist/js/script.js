@@ -736,14 +736,14 @@ const calc = () => {
         inputs[i].parentElement.children[0].classList.add('_disabled');
       } else {
         inputs[i].parentElement.children[0].classList.remove('_disabled');
-      } // console.log(Math.floor(300000 / 70000))
-
+      }
 
       if (Number(input.dataset.price) > Number(totalNum.innerHTML)) {
         // can't buy anymore
         input.nextElementSibling.classList.add('_disabled');
         input.setAttribute('max', input.value);
       } else {
+        input.removeAttribute('max');
         input.nextElementSibling.classList.remove('_disabled');
       }
 
