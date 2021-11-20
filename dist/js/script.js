@@ -10,6 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 const cards = () => {
+  let i = 0;
   const db = [{
     img: 'burger.png',
     title: 'Big Mac',
@@ -49,6 +50,7 @@ const cards = () => {
       } = item;
       let card = document.createElement('div');
       card.classList.add('main-block__item');
+      card.dataset.id = i++;
       card.innerHTML = `
 
                 <div class="main-block__image">
@@ -754,6 +756,12 @@ const calc = () => {
     inputs.forEach((input, i) => {
       arr[i] = input.value * input.dataset.price; // [100, 4340, 550, 1000]
 
+      if (arr[i] > 10) {
+        let myIndex = arr.indexOf(arr[i]);
+        let newArr = arr.splice(myIndex, 1);
+      }
+
+      console.log(arr);
       let res = arr.map(i => x += i, x = 0).reverse()[0]; // 6000 reslut of that array
       // let active = res.filter(item => !item.classList.contains('_active')); 
 

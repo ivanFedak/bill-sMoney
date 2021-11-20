@@ -1,5 +1,6 @@
 const cards = ()=>{
     
+    let i = 0;
     const db = [
         {
             img: 'burger.png',
@@ -45,7 +46,8 @@ const cards = ()=>{
 
             let card = document.createElement('div');
             card.classList.add('main-block__item');
-
+            card.dataset.id = i++;
+            
             card.innerHTML = `
 
                 <div class="main-block__image">
