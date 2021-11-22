@@ -787,6 +787,7 @@ const calc = () => {
 
       reCount();
       checkValue();
+      generateList(); //receipt
 
       if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) > Number(totalNum.innerHTML)) {
         e.target.classList.add('_disabled');
@@ -795,6 +796,7 @@ const calc = () => {
       --e.target.parentElement.querySelector(".main-block__input").value;
       reCount();
       checkValue();
+      generateList(); //receipt
 
       if (Number(e.target.parentElement.querySelector(".main-block__input").dataset.price) <= Number(totalNum.innerHTML)) {
         e.target.parentElement.querySelector(".main-block__buy").classList.remove('_disabled');
