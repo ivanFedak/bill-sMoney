@@ -9,6 +9,7 @@ import header from './modules/header';
 
 import cards from './components/cards'
 import calc from './modules/calc';
+import price from './modules/posPrice'
 // import getResource from './services/request'
 
 
@@ -20,6 +21,7 @@ window.onload = function (){
     header();
 
     calc();
+    price();
     // spoller();
     // slider();
     // dynamicAdaptive();

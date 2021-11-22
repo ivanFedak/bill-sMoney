@@ -57,6 +57,7 @@ body {
 
 .wrapper {
   min-height: 100%;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,7 +289,7 @@ body.ie ._ibg img {
 
 .main-block__priceBlock {
   text-align: center;
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -310,6 +311,10 @@ body.ie ._ibg img {
 
 .main-block__priceBlock:not(:last-child) {
   margin-bottom: 30px;
+}
+
+.main-block__priceBlock._fixed {
+  position: fixed;
 }
 
 .main-block__money {
@@ -504,7 +509,7 @@ body.ie ._ibg img {
 
 @media (min-width: 767.98px) {
   .header {
-    padding-top: 50px;
+    padding-top: 75px;
   }
 }
 
@@ -584,6 +589,6 @@ body.ie ._ibg img {
 
 @media (min-width: 767.98px) and (max-width: 1230px) {
   .header {
-    padding-top: calc(20px + 30 * ((100vw - 320px) / 910));
+    padding-top: calc(70px + 5 * ((100vw - 320px) / 910));
   }
 }

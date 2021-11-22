@@ -865,6 +865,51 @@ const header = () => {
 
 /***/ }),
 
+/***/ "./src/js/modules/posPrice.js":
+/*!************************************!*\
+  !*** ./src/js/modules/posPrice.js ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const price = () => {
+  const block = document.querySelector('.main-block__priceBlock');
+  const blockHeight = block.offsetHeight;
+  const blockOffset = offset(block).top;
+  const moveStart = 1;
+  window.addEventListener('scroll', fixOnScroll);
+
+  function fixOnScroll() {
+    let blockPoint = window.innerHeight - blockHeight / moveStart;
+
+    if (blockHeight > window.innerHeight) {
+      blockPoint = window.innerHeight - window.innerHeight / moveStart;
+    }
+
+    if (window.scrollY > blockOffset - moveStart) {
+      block.classList.add('_fixed');
+      console.log(1);
+    } else {
+      console.log(0);
+      block.classList.remove('_fixed');
+    }
+  }
+
+  function offset(el) {
+    const rect = el.getBoundingClientRect(),
+          scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+          scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return {
+      top: rect.top + scrollTop,
+      left: rect.left + scrollLeft
+    };
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (price);
+
+/***/ }),
+
 /***/ "./src/js/services/default.js":
 /*!************************************!*\
   !*** ./src/js/services/default.js ***!
@@ -986,6 +1031,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/header */ "./src/js/modules/header.js");
 /* harmony import */ var _components_cards__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/cards */ "./src/js/components/cards.js");
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
+/* harmony import */ var _modules_posPrice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/posPrice */ "./src/js/modules/posPrice.js");
+
 
 
 
@@ -1000,7 +1047,8 @@ window.onload = function () {
   (0,_services_default__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_modules_burger__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_modules_header__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  (0,_modules_calc__WEBPACK_IMPORTED_MODULE_7__["default"])(); // spoller();
+  (0,_modules_calc__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  (0,_modules_posPrice__WEBPACK_IMPORTED_MODULE_8__["default"])(); // spoller();
   // slider();
   // dynamicAdaptive();
 };
