@@ -283,16 +283,20 @@ body.ie ._ibg img {
 }
 
 .main-block {
+  position: relative;
   padding-top: 15px;
   padding-bottom: 30px;
 }
 
 .main-block__priceBlock {
   text-align: center;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 1200px;
   padding: 20px;
   background: -webkit-gradient(linear, left top, left bottom, from(#2ecc71), to(#1abc9c));
   background: -o-linear-gradient(top, #2ecc71, #1abc9c);
@@ -309,12 +313,9 @@ body.ie ._ibg img {
       flex-wrap: wrap;
 }
 
-.main-block__priceBlock:not(:last-child) {
-  margin-bottom: 30px;
-}
-
 .main-block__priceBlock._fixed {
   position: fixed;
+  top: 0;
 }
 
 .main-block__money {
@@ -324,6 +325,7 @@ body.ie ._ibg img {
 }
 
 .main-block__body {
+  margin-top: 100px;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -544,10 +546,6 @@ body.ie ._ibg img {
 
   .main-block {
     padding-bottom: calc(20px + 10 * ((100vw - 320px) / 910));
-  }
-
-  .main-block__priceBlock:not(:last-child) {
-    margin-bottom: calc(20px + 10 * ((100vw - 320px) / 910));
   }
 
   .footer__container {

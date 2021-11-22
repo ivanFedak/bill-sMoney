@@ -1,5 +1,6 @@
 
 .main-block
+    position: relative
     @include adaptiv-value('padding-top', 15, 10, 1)
     @include adaptiv-value('padding-bottom', 30, 20, 1)
     &__container
@@ -8,20 +9,20 @@
 
     &__priceBlock
         text-align: center
-        position: relative
-        top: 0
-        left: 0
-        width: 100%
+        position: absolute
+        top: 10px
+        left: 50%
+        transform: translateX(-50%)
+        width: 1200px
         padding: 20px
         background: linear-gradient(180deg,#2ecc71,#1abc9c)
         z-index: 9999
         display: flex
         flex-direction: column
         flex-wrap: wrap
-        &:not(:last-child)
-            @include adaptiv-value('margin-bottom', 30, 20, 1)
         &._fixed
             position: fixed
+            top: 0
     &__money
         color: #fff
         font-size: 32px
@@ -29,6 +30,7 @@
 
 
     &__body
+        margin-top: 100px
         display: grid
         gap: 10px
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))

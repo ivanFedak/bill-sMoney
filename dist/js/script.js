@@ -873,10 +873,16 @@ const header = () => {
 
 __webpack_require__.r(__webpack_exports__);
 const price = () => {
-  const block = document.querySelector('.main-block__priceBlock');
-  const blockHeight = block.offsetHeight;
-  const blockOffset = offset(block).top;
-  const moveStart = 1;
+  let block = document.querySelector('.main-block__priceBlock');
+  let blockHeight = block.offsetHeight;
+  let blockOffset = offset(block).top;
+  let moveStart = 1;
+  window.addEventListener("orientationchange", function () {
+    block = document.querySelector('.main-block__priceBlock');
+    blockHeight = block.offsetHeight;
+    blockOffset = offset(block).top;
+    fixOnScroll();
+  }, false);
   window.addEventListener('scroll', fixOnScroll);
 
   function fixOnScroll() {
