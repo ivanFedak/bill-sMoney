@@ -707,15 +707,20 @@ const calc = () => {
   const totalNum = document.querySelector('.main-block__money span');
   let totalCount = document.querySelector('.main-block__money span').innerHTML;
   const arr = [];
+  let res; //how many we spend
+
   let x;
-  inputs.forEach((input, i) => {
+  inputs.forEach(input => {
     input.value = 0;
     checkValue();
     input.addEventListener('input', function (e) {
-      reCount();
-      checkValue();
-      inputChecker();
-      generateList();
+      reCount(); //recount total price
+
+      checkValue(); //checking input
+
+      inputChecker(); // border
+
+      generateList(); //receipt
     });
   });
 
@@ -768,7 +773,7 @@ const calc = () => {
     inputs.forEach((input, i) => {
       arr[i] = input.value * input.dataset.price; // [100, 4340, 550, 1000]
 
-      let res = arr.map(i => x += i, x = 0).reverse()[0]; // 6000 reslut of that array
+      res = arr.map(i => x += i, x = 0).reverse()[0]; // 6000 reslut of that array
 
       totalNum.innerHTML = totalCount - res; // how many is left (active counter)
       // totalCount - 100000
@@ -795,11 +800,10 @@ const calc = () => {
         e.target.parentElement.querySelector(".main-block__buy").classList.remove('_disabled');
       }
     }
-  }); //Add to receipt
+  }); //----------------------------------------Add to receipt--------------------------------------------\\
 
   const blocks = document.querySelectorAll('.main-block__item');
-  let listArr = []; // let noCopyArr = [];
-
+  let listArr = [];
   let resultArr = [];
 
   function generateList() {
@@ -835,6 +839,7 @@ const calc = () => {
             `;
       document.querySelector('.footer__body').appendChild(goods);
     });
+    document.querySelector('.footer__money span').innerHTML = res; //total
   }
 };
 

@@ -8,18 +8,19 @@ const calc = ()=>{
     let totalCount = document.querySelector('.main-block__money span').innerHTML;
 
     const arr = [];
+    let res; //how many we spend
     let x;
 
 
-    inputs.forEach((input, i) => {
+    inputs.forEach(input => {
         input.value = 0;
         checkValue();
         input.addEventListener('input',function(e){
-            reCount();
-            checkValue();
-            inputChecker();
+            reCount(); //recount total price
+            checkValue(); //checking input
+            inputChecker(); // border
 
-            generateList()
+            generateList(); //receipt
         })
     })
 
@@ -72,7 +73,7 @@ const calc = ()=>{
         inputs.forEach((input, i) => {
 
             arr[i] = input.value * input.dataset.price;  // [100, 4340, 550, 1000]
-            let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
+            res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
             totalNum.innerHTML = totalCount - res        // how many is left (active counter)
             // totalCount - 100000
             
@@ -106,26 +107,25 @@ const calc = ()=>{
     })
 
 
-//Add to receipt
+
+//----------------------------------------Add to receipt--------------------------------------------\\
 
     const blocks = document.querySelectorAll('.main-block__item');
 
 
     let listArr = [];
-    // let noCopyArr = [];
     let resultArr = [];
 
     function generateList() {
         blocks.forEach(block=>{
             const input = block.querySelector('input');
             const name = block.querySelector('.main-block__title').innerHTML;
-
             const list = {};
             list.name = name 
             list.quan = input.value
             list.price = input.dataset.price * input.value
-            listArr.push(list);
 
+            listArr.push(list);
             // noCopyArr = listArr.filter((item,index) => listArr.indexOf(item) === index); //without copy
             resultArr = listArr.filter(item => item.quan > 0 ) //every item
         })
@@ -153,6 +153,7 @@ const calc = ()=>{
 
             document.querySelector('.footer__body').appendChild(goods);
         });
+        document.querySelector('.footer__money span').innerHTML = res; //total
     }
 
     
