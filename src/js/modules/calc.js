@@ -7,6 +7,8 @@ const calc = ()=>{
     const totalNum = document.querySelector('.main-block__money span');
     let totalCount = document.querySelector('.main-block__money span').innerHTML;
 
+    const modal = document.querySelector('.modal'); //---ignore
+
     const arr = [];
     let res; //how many we spend
     let x;
@@ -64,6 +66,11 @@ const calc = ()=>{
                 input.nextElementSibling.classList.remove('_disabled');
             }
 
+
+            if(Number(totalNum.innerHTML) == 0 && !document.body.classList.contains('_showed')){ //show modal
+                modal.classList.add('_active');
+                document.body.classList.add('_lock', '_showed');
+            }
 
             
         })

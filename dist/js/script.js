@@ -706,6 +706,8 @@ const calc = () => {
   const inputs = document.querySelectorAll('.main-block__input');
   const totalNum = document.querySelector('.main-block__money span');
   let totalCount = document.querySelector('.main-block__money span').innerHTML;
+  const modal = document.querySelector('.modal'); //---ignore
+
   const arr = [];
   let res; //how many we spend
 
@@ -765,6 +767,12 @@ const calc = () => {
       } else {
         input.removeAttribute('max');
         input.nextElementSibling.classList.remove('_disabled');
+      }
+
+      if (Number(totalNum.innerHTML) == 0 && !document.body.classList.contains('_showed')) {
+        //show modal
+        modal.classList.add('_active');
+        document.body.classList.add('_lock', '_showed');
       }
     });
   }
@@ -871,7 +879,6 @@ const header = () => {};
 __webpack_require__.r(__webpack_exports__);
 const modal = () => {
   const modal = document.querySelector('.modal'),
-        closeBtn = document.querySelector('.modal__close'),
         showBtn = document.querySelector('.modal__btn'),
         docBody = document.querySelector('body'),
         money = document.querySelector('.main-block__money span');
@@ -884,18 +891,27 @@ const modal = () => {
   function closeModal(e) {
     const target = e.target;
 
-    if (!target.closest('.modal__container')) {
-      modal.classList.remove('_active');
-      docBody.classList.remove('_lock');
-    }
-
-    if (target.closest('.modal__close')) {
+    if (!target.closest('.modal__container') || target.closest('.modal__close') || target.closest('.modal__btn')) {
       modal.classList.remove('_active');
       docBody.classList.remove('_lock');
     }
   }
 
   document.addEventListener('click', closeModal);
+  showBtn.addEventListener('click', function (e) {
+    closeModal(e);
+    setTimeout(() => {
+      const block = document.querySelector('footer');
+      const blockValue = block.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        //Заставляе скрол робити
+        top: blockValue,
+        //Свеху 
+        behavior: "smooth"
+      });
+    }, 200);
+    e.preventDefault();
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
