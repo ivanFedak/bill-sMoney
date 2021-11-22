@@ -856,12 +856,49 @@ const calc = () => {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-const header = () => {
-  const block = document.querySelector('.header__content');
-  window.addEventListener('scroll', function (e) {});
-};
+const header = () => {};
 
 /* harmony default export */ __webpack_exports__["default"] = (header);
+
+/***/ }),
+
+/***/ "./src/js/modules/modal.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/modal.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const modal = () => {
+  const modal = document.querySelector('.modal'),
+        closeBtn = document.querySelector('.modal__close'),
+        showBtn = document.querySelector('.modal__btn'),
+        docBody = document.querySelector('body'),
+        money = document.querySelector('.main-block__money span');
+
+  if (Number(money.innerHTML) == 0 && !docBody.classList.contains('_showed')) {
+    modal.classList.add('_active');
+    docBody.classList.add('_lock', '_showed');
+  }
+
+  function closeModal(e) {
+    const target = e.target;
+
+    if (!target.closest('.modal__container')) {
+      modal.classList.remove('_active');
+      docBody.classList.remove('_lock');
+    }
+
+    if (target.closest('.modal__close')) {
+      modal.classList.remove('_active');
+      docBody.classList.remove('_lock');
+    }
+  }
+
+  document.addEventListener('click', closeModal);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
 
@@ -894,9 +931,7 @@ const price = () => {
 
     if (window.scrollY > blockOffset - moveStart) {
       block.classList.add('_fixed');
-      console.log(1);
     } else {
-      console.log(0);
       block.classList.remove('_fixed');
     }
   }
@@ -1038,6 +1073,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_cards__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/cards */ "./src/js/components/cards.js");
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_posPrice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/posPrice */ "./src/js/modules/posPrice.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
+
 
 
 
@@ -1054,7 +1091,8 @@ window.onload = function () {
   (0,_modules_burger__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_modules_header__WEBPACK_IMPORTED_MODULE_5__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_7__["default"])();
-  (0,_modules_posPrice__WEBPACK_IMPORTED_MODULE_8__["default"])(); // spoller();
+  (0,_modules_posPrice__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_9__["default"])(); // spoller();
   // slider();
   // dynamicAdaptive();
 };

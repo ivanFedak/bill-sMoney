@@ -26,9 +26,7 @@ const price = ()=>{
 
         if(window.scrollY > blockOffset - moveStart){
             block.classList.add('_fixed');
-            console.log(1)
         }else{
-            console.log(0)
             block.classList.remove('_fixed');
         }
     }
