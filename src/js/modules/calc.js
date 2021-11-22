@@ -19,9 +19,7 @@ const calc = ()=>{
             checkValue();
             inputChecker();
 
-
-            // generateList();
-            // createItem(listArr);
+            generateList()
         })
     })
 
@@ -77,10 +75,6 @@ const calc = ()=>{
             let res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
             totalNum.innerHTML = totalCount - res        // how many is left (active counter)
             // totalCount - 100000
-
-            // if(Number(totalNum.innerHTML) < 0){
-            //     totalNum.innerHTML = 0;
-            // }
             
         })
     }
@@ -117,28 +111,33 @@ const calc = ()=>{
     const blocks = document.querySelectorAll('.main-block__item');
 
 
-    const listArr = [];
+    let listArr = [];
+    // let noCopyArr = [];
+    let resultArr = [];
 
     function generateList() {
-        blocks.forEach((block,i)=>{
-
+        blocks.forEach(block=>{
             const input = block.querySelector('input');
             const name = block.querySelector('.main-block__title').innerHTML;
+
             const list = {};
-            if(input.value > 0){
-                list.name = name 
-                list.quan = input.value
-                list.price = input.dataset.price * input.value
-                listArr.push(list);
-            }
+            list.name = name 
+            list.quan = input.value
+            list.price = input.dataset.price * input.value
+            listArr.push(list);
+
+            // noCopyArr = listArr.filter((item,index) => listArr.indexOf(item) === index); //without copy
+            resultArr = listArr.filter(item => item.quan > 0 ) //every item
         })
+
+        listArr = []
+        createItem(resultArr)
     }
-    
-    
 
+    function createItem(data) { 
 
+        document.querySelectorAll('.footer__item').forEach(item=> item.remove());
 
-    function createItem(data) {
         data.forEach(item => {
 
             const {name,quan,price} = item;

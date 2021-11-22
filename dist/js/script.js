@@ -714,8 +714,8 @@ const calc = () => {
     input.addEventListener('input', function (e) {
       reCount();
       checkValue();
-      inputChecker(); // generateList();
-      // createItem(listArr);
+      inputChecker();
+      generateList();
     });
   });
 
@@ -772,9 +772,6 @@ const calc = () => {
 
       totalNum.innerHTML = totalCount - res; // how many is left (active counter)
       // totalCount - 100000
-      // if(Number(totalNum.innerHTML) < 0){
-      //     totalNum.innerHTML = 0;
-      // }
     });
   }
 
@@ -801,24 +798,28 @@ const calc = () => {
   }); //Add to receipt
 
   const blocks = document.querySelectorAll('.main-block__item');
-  const listArr = [];
+  let listArr = []; // let noCopyArr = [];
+
+  let resultArr = [];
 
   function generateList() {
-    blocks.forEach((block, i) => {
+    blocks.forEach(block => {
       const input = block.querySelector('input');
       const name = block.querySelector('.main-block__title').innerHTML;
       const list = {};
+      list.name = name;
+      list.quan = input.value;
+      list.price = input.dataset.price * input.value;
+      listArr.push(list); // noCopyArr = listArr.filter((item,index) => listArr.indexOf(item) === index); //without copy
 
-      if (input.value > 0) {
-        list.name = name;
-        list.quan = input.value;
-        list.price = input.dataset.price * input.value;
-        listArr.push(list);
-      }
+      resultArr = listArr.filter(item => item.quan > 0); //every item
     });
+    listArr = [];
+    createItem(resultArr);
   }
 
   function createItem(data) {
+    document.querySelectorAll('.footer__item').forEach(item => item.remove());
     data.forEach(item => {
       const {
         name,
