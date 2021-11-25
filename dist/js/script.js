@@ -819,6 +819,17 @@ const calc = () => {
 
       totalNum.innerHTML = totalCount - res; // how many is left (active counter)
       // totalCount - 100000
+      // !! let numVal = totalCount - res        // how many is left (active counter)
+      // let step = Math.floor(inputs[i].dataset.price / 10000000000)
+      // console.log(step)
+      // let inter = setInterval(() => {
+      //     Number(totalNum.innerHTML = totalNum.innerHTML - Number(step));
+      //     if(Number(totalNum.innerHTML) <= Number(numVal)){
+      //         totalNum.innerHTML = numVal
+      //         clearInterval(inter);
+      //         checkValue()
+      //     }
+      // }, 10);
     });
   }
 
