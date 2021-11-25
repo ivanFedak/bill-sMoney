@@ -803,8 +803,10 @@ const calc = () => {
 
       if (Number(totalNum.innerHTML) == 0 && !document.body.classList.contains('_showed')) {
         //show modal
-        modal.classList.add('_active');
-        document.body.classList.add('_lock', '_showed');
+        setTimeout(() => {
+          modal.classList.add('_active');
+          document.body.classList.add('_lock', '_showed');
+        }, 100);
       }
     });
   }
@@ -911,6 +913,7 @@ const header = () => {};
 __webpack_require__.r(__webpack_exports__);
 const modal = () => {
   const modal = document.querySelector('.modal'),
+        closeBtn = document.querySelector('.modal__close'),
         showBtn = document.querySelector('.modal__btn'),
         docBody = document.querySelector('body'),
         money = document.querySelector('.main-block__money span');
@@ -922,14 +925,11 @@ const modal = () => {
 
   function closeModal(e) {
     const target = e.target;
-
-    if (!target.closest('.modal__container') || target.closest('.modal__close') || target.closest('.modal__btn')) {
-      modal.classList.remove('_active');
-      docBody.classList.remove('_lock');
-    }
+    modal.classList.remove('_active');
+    docBody.classList.remove('_lock');
   }
 
-  document.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
   showBtn.addEventListener('click', function (e) {
     closeModal(e);
     setTimeout(() => {
@@ -941,7 +941,7 @@ const modal = () => {
         //Свеху 
         behavior: "smooth"
       });
-    }, 200);
+    }, 100);
     e.preventDefault();
   });
 };

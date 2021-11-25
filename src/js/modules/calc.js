@@ -68,8 +68,11 @@ const calc = ()=>{
 
 
             if(Number(totalNum.innerHTML) == 0 && !document.body.classList.contains('_showed')){ //show modal
-                modal.classList.add('_active');
-                document.body.classList.add('_lock', '_showed');
+                setTimeout(() => {
+                    
+                    modal.classList.add('_active');
+                    document.body.classList.add('_lock', '_showed');
+                }, 100);
             }
 
             
@@ -114,6 +117,7 @@ const calc = ()=>{
 
         }
     })
+
 
 
 
