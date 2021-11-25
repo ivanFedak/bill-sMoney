@@ -5,12 +5,12 @@ const cards = ()=>{
         {
             img: 'burger.png',
             title: 'Big Mac',
-            price: '2',
+            price: '3',
         },
         {
             img: 'Coca-Cola.png',
             title: 'Coca-Cola',
-            price: '5',
+            price: '4',
         },
         {
             img: 'cube.png',
@@ -19,7 +19,7 @@ const cards = ()=>{
         },
         {
             img: 'iphone.png',
-            title: 'Iphone 13',
+            title: 'Iphone 13 Pro Max',
             price: '1500',
         },
         {
@@ -33,10 +33,51 @@ const cards = ()=>{
             price: '3800',
         },
         {
+            img: 'pc.png',
+            title: 'Gaming Pc',
+            price: '5000',
+        },
+        {
+            img: 'wine.png',
+            title: 'Luxury Wine',
+            price: '7000',
+        },
+        {
             img: 'cybertruck.png',
             title: 'Cybertruck',
             price: '70000',
-        }
+        },
+        {
+            img: 'rolex.png',
+            title: 'Rolex',
+            price: '90000',
+        },
+        {
+            img: 'gold.png',
+            title: 'Gold Bar',
+            price: '700000',
+        },
+        {
+            img: 'formula.png',
+            title: 'Formula 1 Car',
+            price: '15000000',
+        },
+
+        {
+            img: 'mona.jpg',
+            title: 'Mona Lisa',
+            price: '780000000',
+        },
+        {
+            img: 'charity.png',
+            title: 'Сharity',
+            price: '296200000000',
+        },
+        {
+            img: 'mona.jpg',
+            title: 'Igor\'s training',
+            price: '296200000001',
+        },
 
     ]
 
