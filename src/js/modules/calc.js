@@ -23,20 +23,20 @@ const calc = ()=>{
             inputChecker(); // border
 
             generateList(); //receipt
-        })
-    })
+        });
+    });
 
 
     function inputChecker() {
         inputs.forEach(input=>{
             if(Number(input.dataset.price) > Number(totalNum.innerHTML)){ // can't buy anymore
                 if(!/-/g.test(Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price))){
-                    input.value = Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price)
-                    reCount()
-                    checkValue()
+                    input.value = Math.floor((Number(totalNum.innerHTML) + Number((input.value * input.dataset.price))) / input.dataset.price);
+                    reCount();
+                    checkValue();
                 }
             }
-        })
+        });
     }
     
     function checkValue(){
@@ -45,11 +45,11 @@ const calc = ()=>{
             input.value = input.value.replace(/[\D]/g, ''); //only number
 
             if(input.value[0] == 0){//delete 0
-                input.value = input.value.slice(1) 
+                input.value = input.value.slice(1) ;
             }
 
             if(input.value == ''){// if empty so 0
-                input.value = 0 
+                input.value = 0 ;
             }
 
             if(input.value == 0){// can't sold
@@ -76,7 +76,7 @@ const calc = ()=>{
             }
 
             
-        })
+        });
     }
 
     function reCount(){
@@ -84,7 +84,7 @@ const calc = ()=>{
 
             arr[i] = input.value * input.dataset.price;  // [100, 4340, 550, 1000]
             res = arr.map(i=>x+=i,x=0).reverse()[0]; // 6000 reslut of that array
-            totalNum.innerHTML = totalCount - res        // how many is left (active counter)
+            totalNum.innerHTML = totalCount - res  ;      // how many is left (active counter)
             // totalCount - 100000
            
             // !! let numVal = totalCount - res        // how many is left (active counter)
@@ -102,7 +102,7 @@ const calc = ()=>{
             //     }
             // }, 10);
 
-        })
+        });
     }
 
     
@@ -131,7 +131,7 @@ const calc = ()=>{
             }
 
         }
-    })
+    });
 
 
 
@@ -149,17 +149,17 @@ const calc = ()=>{
             const input = block.querySelector('input');
             const name = block.querySelector('.main-block__title').innerHTML;
             const list = {};
-            list.name = name 
-            list.quan = input.value
-            list.price = input.dataset.price * input.value
+            list.name = name ;
+            list.quan = input.value;
+            list.price = input.dataset.price * input.value;
 
             listArr.push(list);
             // noCopyArr = listArr.filter((item,index) => listArr.indexOf(item) === index); //without copy
-            resultArr = listArr.filter(item => item.quan > 0 ) //every item
-        })
+            resultArr = listArr.filter(item => item.quan > 0 ); //every item
+        });
 
-        listArr = []
-        createItem(resultArr)
+        listArr = [];
+        createItem(resultArr);
     }
 
     function createItem(data) { 
@@ -177,7 +177,7 @@ const calc = ()=>{
                 <div class="footer__name">${name}</div>
                 <div class="footer__quantity">x<span>${quan}</span></div>
                 <div class="footer__price">$ <span>${price}</span></div> 
-            `
+            `;
 
             document.querySelector('.footer__body').appendChild(goods);
         });
@@ -187,7 +187,7 @@ const calc = ()=>{
     
  
 
-}
+};
 export default calc;
 
 
